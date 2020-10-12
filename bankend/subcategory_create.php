@@ -1,6 +1,7 @@
 <?php 
 
 include 'include/header.php';
+include 'dbconnect.php';
 
 ?>
 
@@ -18,8 +19,25 @@ include 'include/header.php';
 				<input type="text" name="name" id="name" class="form-control">
 			</div>
 			<div class="form-group">
-				<label for="category">Category</label>
-				<input type="number" name="category" class="form-control" id="category">
+				<label for="subcategory">Category</label>
+				<select class="form-control" name="category" id="category">
+					<option>Choose....</option>
+
+					<?php 
+
+						$sql="SELECT * FROM categories";
+						$stmt=$pdo->prepare($sql);
+						$stmt->execute();
+						$categories=$stmt->fetchAll();
+
+						foreach ($categories as $category) {
+
+					 ?>
+
+					 <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+
+					<?php } ?>
+				</select>
 			</div>
 			
 
