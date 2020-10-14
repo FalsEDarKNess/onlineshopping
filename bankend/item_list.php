@@ -68,7 +68,7 @@ include 'dbconnect.php';
 							</td>
 							<td>
 							<a href="item_detail.php?id=<?php echo $item['id'] ?>" class="btn btn-outline-primary btn-sm">Detail</a> 
-							<a href="#" class="btn btn-outline-warning btn-sm">Edit</a>
+							<a href="item_edit.php?id=<?php echo $item['id']; ?>" class="btn btn-outline-warning btn-sm">Edit</a>
 							<a href="item_delete.php?id=<?php echo $item['id'] ?>" class="btn btn-outline-danger btn-sm">Delete</a>
 							</td>
 

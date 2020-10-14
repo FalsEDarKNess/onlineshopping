@@ -8,7 +8,7 @@
 	$fullpath=$basepath.$photo['name'];
 	move_uploaded_file($photo['tmp_name'], $fullpath);
 
-	// echo "$name and $price and $discount and $brand and $subcategory and $description and $codeno<br>";
+	// echo "$name <br>";
 	// print_r($photo);
 
 	$sql="INSERT INTO brands (name,photo) VALUES(:brand_name,:brand_photo)";
