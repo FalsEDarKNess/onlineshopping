@@ -1,5 +1,7 @@
 <?php 
 
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
 	include 'dbconnect.php';
 
 	$id=$_GET['id'];
@@ -14,5 +16,9 @@
 	}else{
 		echo "Error";
 	}
+
+}else{
+	header("location:index.php");
+}
 
  ?>

@@ -1,4 +1,7 @@
 <?php 
+
+	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
 	include 'dbconnect.php';
 
 	$name = $_POST['name'];
@@ -23,5 +26,8 @@
 		echo "Error";
 	}
 
+}else{
+	header("location:index.php");
+}
 
 ?>
