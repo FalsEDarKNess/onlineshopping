@@ -46,12 +46,12 @@ include 'dbconnect.php';
 							$stmt=$pdo->prepare($sql);
 							$stmt->execute();
 							$items=$stmt->fetchAll();
-
+							$j=1;
 							foreach ($items as $item) {
 							
 						?>
 						<tr>
-							<td>1</td>
+							<td><?php echo $j++; ?></td>
 							<td><?php echo $item['name']; ?></td>
 							<td><?php echo $item['codeno']; ?></td>
 							<td>

@@ -39,22 +39,23 @@ include 'dbconnect.php';
 					</tfoot>
 					<tbody>
 
-						<?php 
-							$sql="SELECT * FROM subcategories";
-							$stmt=$pdo->prepare($sql);
-							$stmt->execute();
-							$items=$stmt->fetchAll();
-
-							foreach ($items as $item) {
+						<?php
+						$sql="SELECT subcategories.*,categories.name as cat_name FROM subcategories,categories WHERE subcategories.category_id=categories.id";
+						$stmt=$pdo->prepare($sql);
+						$stmt->execute();
+						$subcategories=$stmt->fetchAll();
+						$j=1;
+						foreach ($subcategories as $subcategory) {
 							
-						?>
+							?>
 						<tr>
-							<td>1</td>
-							<td><?php echo $item['name']; ?></td>
-							<td><?php echo $item['category_id']; ?></td>
-							<td><a href="#" class="btn btn-outline-primary btn-sm">Detail</a> 
+							<td><?php echo $j++; ?></td>
+							<td><?php echo $subcategory['name']; ?></td>
+							<td><?php echo $subcategory['cat_name']; ?></td>
+							<td>
 								<a href="subcategory_edit.php?id=<?php echo $item['id'] ?>" class="btn btn-outline-warning btn-sm">Edit</a> 
-								<a href="subcategory_delete.php?id=<?php echo $item['id'] ?>" class="btn btn-outline-danger btn-sm">Delete</a></td>
+								<a href="subcategory_delete.php?id=<?php echo $item['id'] ?>" class="btn btn-outline-danger btn-sm">Delete</a>
+							</td>
 
 						</tr>
 

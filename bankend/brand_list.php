@@ -41,17 +41,18 @@ include 'dbconnect.php';
 							$sql="SELECT * FROM brands";
 							$stmt=$pdo->prepare($sql);
 							$stmt->execute();
-							$items=$stmt->fetchAll();
-
-							foreach ($items as $item) {
+							$brands=$stmt->fetchAll();
+							$j=1;
+							foreach ($brands as $brand) {
 							
 						?>
 						<tr>
-							<td>1</td>
-							<td><?php echo $item['name']; ?></td>
-							<td><a href="#" class="btn btn-outline-primary btn-sm">Detail</a> 
+							<td><?php echo $j++; ?></td>
+							<td><?php echo $brand['name']; ?></td>
+							<td>
 								<a href="brand_edit.php?id=<?php echo $item['id'] ?>" class="btn btn-outline-warning btn-sm">Edit</a> 
-								<a href="brand_delete.php?id=<?php echo $item['id'] ?>" class="btn btn-outline-danger btn-sm">Delete</a></td>
+								<a href="brand_delete.php?id=<?php echo $item['id'] ?>" class="btn btn-outline-danger btn-sm">Delete</a>
+							</td>
 
 						</tr>
 

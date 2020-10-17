@@ -43,18 +43,19 @@ include 'dbconnect.php';
 							$sql="SELECT * FROM categories";
 							$stmt=$pdo->prepare($sql);
 							$stmt->execute();
-							$items=$stmt->fetchAll();
-
-							foreach ($items as $item) {
+							$categories=$stmt->fetchAll();
+							$j=1;
+							foreach ($categories as $category) {
 							
 						?>
 						<tr>
-							<td>1</td>
-							<td><?php echo $item['name']; ?></td>
-							<td><?php echo $item['logo']; ?></td>
-							<td><a href="#" class="btn btn-outline-primary btn-sm">Detail</a> 
+							<td><?php echo $j++; ?></td>
+							<td><?php echo $category['name']; ?></td>
+							<td><?php echo $category['logo']; ?></td>
+							<td>
 								<a href="category_edit.php?id=<?php echo $item['id'] ?>" class="btn btn-outline-warning btn-sm">Edit</a> 
-								<a href="category_delete.php?id=<?php echo $item['id'] ?>" class="btn btn-outline-danger btn-sm">Delete</a></td>
+								<a href="category_delete.php?id=<?php echo $item['id'] ?>" class="btn btn-outline-danger btn-sm">Delete</a>
+							</td>
 
 						</tr>
 

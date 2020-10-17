@@ -81,6 +81,18 @@
             <span>Subcategory List</span></a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link" href="order_list.php">
+            <i class="fas fa-clipboard-list"></i>
+            <span>Order List</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="confirm_list.php">
+            <i class="fas fa-clipboard-list"></i>
+            <span>Confirm List</span></a>
+        </li>
+
         <!-- Divider -->
         <hr class="sidebar-divider">
 
